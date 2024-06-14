@@ -1,4 +1,4 @@
-import wrtc from 'wrtc'
+import wrtc from '@roamhq/wrtc'
 import net from 'net'
 import EventEmitter from 'events'
 
@@ -106,7 +106,7 @@ export default class TcpSend extends EventEmitter {
     this.id = id
     this.iceServers = iceServers
     /** @type {RTCPeerConnection} */
-    this.peerConnection = new RTCPeerConnection({ iceServers, iceTransportPolicy: 'relay' })
+    this.peerConnection = new RTCPeerConnection({ iceServers })
     this.peerConnection.onicecandidate = (ice) => {
       if (ice.candidate) {
         this.emit('icecandidate', {

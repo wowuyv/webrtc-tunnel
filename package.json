@@ -7,9 +7,9 @@
     "build:test": "rimraf dist _dist && babel src -d _dist && pkg . && rimraf _dist && shx cp config.dev.json dist"
   },
   "dependencies": {
+    "@roamhq/wrtc": "^0.8.0",
     "socket.io-client": "^4.7.2",
-    "uuid": "^10.0.0",
-    "wrtc": "^0.4.7"
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.7",

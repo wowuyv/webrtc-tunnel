@@ -1,4 +1,4 @@
-import wrtc from 'wrtc'
+import wrtc from '@roamhq/wrtc'
 import EventEmitter from 'events'
 import net from 'net'
 import { v4 as uuidv4 } from 'uuid'
@@ -97,7 +97,7 @@ export default class TcpListen extends EventEmitter {
     super()
     this.id = id
     this.iceServers = iceServers
-    this.peerConnection = new RTCPeerConnection({ iceServers, iceTransportPolicy: 'relay' })
+    this.peerConnection = new RTCPeerConnection({ iceServers })
     this.peerConnection.onicecandidate = (ice) => {
       if (ice.candidate) {
         this.emit('icecandidate', {
