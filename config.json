@@ -17,5 +17,8 @@
       "remotePort": 3389
     }
   ],
+  "iceAddrBlacklist": [
+    "1.1.1.1"
+  ],
   "secretKey": ""
 }

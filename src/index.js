@@ -130,6 +130,9 @@ class WebrtcTunnelClient {
   }
 
   tcpSendSetCandidate({ id, candidate }) {
+    if (this.config.iceAddrBlacklist.includes(candidate.address)) {
+      return
+    }
     const tcpSend = this.tcpSendMap.get(id)
     if (!tcpSend) {
       return
@@ -146,6 +149,9 @@ class WebrtcTunnelClient {
   }
 
   tcpListenSetCandidate({ id, candidate }) {
+    if (this.config.iceAddrBlacklist.includes(candidate.address)) {
+      return
+    }
     const tcpListen = this.tcpListenMap.get(id)
     if (!tcpListen) {
       return
