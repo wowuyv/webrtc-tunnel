@@ -1,0 +1,34 @@
+{
+  "name": "wrtc-tunnel",
+  "bin": "_dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "rimraf dist _dist && babel src -d _dist && pkg . && rimraf _dist && shx cp config.json dist",
+    "build:test": "rimraf dist _dist && babel src -d _dist && pkg . && rimraf _dist && shx cp config.dev.json dist"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.7.2",
+    "uuid": "^10.0.0",
+    "wrtc": "^0.4.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0",
+    "pkg": "^5.8.1",
+    "request": "^2.88.2",
+    "rimraf": "^5.0.7",
+    "shx": "^0.3.4"
+  },
+  "pkg": {
+    "outputPath": "dist",
+    "targets": [
+      "host"
+    ]
+  }
+}
